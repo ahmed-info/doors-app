@@ -6,17 +6,17 @@ class ContactUs extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(children: [
       ListTile(
-          trailing: Text("اتصل بنا"),
+          trailing: const Text("اتصل بنا"),
           leading: const Icon(Icons.arrow_back_ios),
           onTap: () {},
         ),
         ListTile(
-          trailing: Text("اتصل بنا"),
+          trailing: const Text("اتصل بنا"),
           leading: const Icon(Icons.arrow_back_ios),
           onTap: () {},
         ),
         ListTile(
-          trailing: Text("اتصل بنا"),
+          trailing: const Text("اتصل بنا"),
           leading: const Icon(Icons.arrow_back_ios),
           onTap: () {},
         ),

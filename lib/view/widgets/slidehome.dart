@@ -3,23 +3,23 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:doors/core/constant/api_const.dart';
-import 'package:doors/network/api_request.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:doors/core/constant/app_link.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-class Carousel extends StatefulWidget {
-  const Carousel({required key}) : super(key: key);
+class SlideHome extends StatefulWidget {
+  const SlideHome({required key}) : super(key: key);
   //var response = await dio.get(AppConstants.serverSlides);
   //var images = AppConstants.serverSlides["data"][0]["images"];
 
   @override
-  State<Carousel> createState() => _CarouselState();
+  State<SlideHome> createState() => _SlideHomeState();
 }
 
 // var len = AppConstants().dataOffline["data"] as List;
 
-class _CarouselState extends State<Carousel> {
+class _SlideHomeState extends State<SlideHome> {
   late final PageController pageController;
   int pageNo = 0;
   Timer? carouselTimer;
@@ -53,12 +53,12 @@ class _CarouselState extends State<Carousel> {
 
   @override
   Widget build(BuildContext context) {
-      
+
       return isLoading ==true
           ? Center(
               child: CircularProgressIndicator(),
             )
-          : Container(
+          : SizedBox(
               height: 250,
               child: Column(
                 children: [
@@ -97,7 +97,7 @@ class _CarouselState extends State<Carousel> {
                                   image: DecorationImage(
                                       fit: BoxFit.fill,
                                       image:
-                                          NetworkImage(slides[index]['image'])),
+                                          CachedNetworkImageProvider(slides[index]['image'])),
                                   borderRadius: BorderRadius.circular(24)),
                             ),
                           ),

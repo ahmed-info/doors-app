@@ -1,8 +1,7 @@
-
 // ignore_for_file: prefer_collection_literals, unnecessary_new, unnecessary_this
 
 class Product {
-  int? id;
+  int? prodID;
   int? subcategoryId;
   String? title;
   String? description;
@@ -28,9 +27,10 @@ class Product {
   String? originCountry;
   String? createdAt;
   String? updatedAt;
+  int? favorite;
 
   Product(
-      {this.id,
+      {this.prodID,
       this.subcategoryId,
       this.title,
       this.description,
@@ -55,10 +55,11 @@ class Product {
       this.priceDiscount,
       this.originCountry,
       this.createdAt,
-      this.updatedAt});
+      this.updatedAt,
+      this.favorite});
 
   Product.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+    prodID = json['prodID'];
     subcategoryId = json['subcategory_id'];
     title = json['title'];
     description = json['description'];
@@ -84,11 +85,12 @@ class Product {
     originCountry = json['originCountry'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
+    favorite = json['favorite'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
+    data['prodID'] = this.prodID;
     data['subcategory_id'] = this.subcategoryId;
     data['title'] = this.title;
     data['description'] = this.description;
@@ -114,6 +116,7 @@ class Product {
     data['originCountry'] = this.originCountry;
     data['created_at'] = this.createdAt;
     data['updated_at'] = this.updatedAt;
+    data['favorite'] = this.favorite;
     return data;
   }
 }
